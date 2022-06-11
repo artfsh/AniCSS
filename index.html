@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>AniCSS</title>
 		<link rel="stylesheet" type="text/css" href="./css/new_file.css"/>
 		<link rel="stylesheet" type="text/css" href="./css/hover.css"/>
 		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -117,7 +117,7 @@
 						<div class="name top">下移<input class="value top-v" value="" placeholder="0px" v-model="StyleBeforeHover.moveDown" @focusout="changeBeforeHover()"/></div>
 						<div class="name background">颜色<input type="color" class="value background-v" value="" v-model="StyleBeforeHover.background" @focusout="changeBeforeHover()"/></div>
 						<div class="name z-index">层级<input class="value z-index-v" placeholder="上" disabled="disabled"/></div>
-						<div class="name opacity">清晰<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeHover.opacity" @focusout="changeBeforeHover()"/></div>
+						<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeHover.opacity" @focusout="changeBeforeHover()"/></div>
 						<div class="name border-radius">圆角<input class="value border-radius-v" value="" placeholder="0px" v-model="StyleBeforeHover.borderRadius" @focusout="changeBeforeHover()"/></div>
 						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleBeforeHover.border" @focusout="changeBeforeHover()"/>
 							<input type="color" class="value border-c" v-model="StyleBeforeHover.borderColor" @focusout="changeBeforeHover()"/></div>
@@ -135,7 +135,7 @@
 						<div class="name top">下移<input class="value top-v" value="" placeholder="0px" v-model="StyleBeforeActive.moveDown" @focusout="changeBeforeActive()"/></div>
 						<div class="name background">颜色<input type="color" class="value background-v" value="" v-model="StyleBeforeActive.background" @focusout="changeBeforeActive()"/></div>
 						<div class="name z-index">层级<input class="value z-index-v" placeholder="上" disabled="disabled"/></div>
-						<div class="name opacity">清晰<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeActive.opacity" @focusout="changeBeforeActive()"/></div>
+						<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeActive.opacity" @focusout="changeBeforeActive()"/></div>
 						<div class="name border-radius">圆角<input class="value border-radius-v" value="" placeholder="0px" v-model="StyleBeforeActive.borderRadius" @focusout="changeBeforeActive()"/></div>
 						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleBeforeActive.border" @focusout="changeBeforeActive()"/>
 							<input type="color" class="value border-c" v-model="StyleBeforeActive.borderColor" @focusout="changeBeforeActive()"/></div>
