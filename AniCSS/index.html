@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="./css/new_file.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/hover.css"/>
+		<script src="./js/vue.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+	<div id="main">
+		<div id="left-part">
+			<div class="main-element">
+				<div id="main-element-title">主元素</div>
+				<div class="anime" id="anime1" @click="mainAnimeShow()">动效</div>
+				<div id="main-property-area">
+					<div class="name height">高<input class="value height-v" placeholder="0px" v-model="StyleE1.height" @focusout="changeMain()"/></div>
+					<div class="name width">宽<input class="value width-v" placeholder="0px" v-model="StyleE1.width" @focusout="changeMain()"/></div>
+					<div class="name left">X<input class="value left-v" v-model="StyleE1.left" @focusout="changeMain()"/></div>
+					<div class="name top">Y<input class="value top-v" v-model="StyleE1.top" @focusout="changeMain()"/></div>
+					<div class="name background">颜色<input type="color" class="value background-v" v-model="StyleE1.background" @focusout="changeMain()"/></div>
+					<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" v-model="StyleE1.opacity" @focusout="changeMain()"/></div>
+					<div class="name z-index">层级<input class="value z-index-v" placeholder="中" disabled="disabled" v-model="StyleE1.zIndex" @focusout="changeMain()"/></div>
+					<div class="name border-radius">圆角<input class="value border-radius-v" placeholder="0px" v-model="StyleE1.borderRadius" @focusout="changeMain()"/></div>
+					<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleE1.border" @focusout="changeMain()"/>
+						<input type="color" class="value border-c" v-model="StyleE1.borderColor" @focusout="changeMain()"/></div>
+					<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleE1.boxShadow" @focusout="changeMain()"/></div>
+				</div>
+			</div>
+			<div id="main-element-anime" :style="mainElementAnime">
+				<div class="anime-transition">动效过渡</div>
+				<div class="transition">
+					<img class="icon icon1" src="./img/delay.png" >
+					<input type="" class="value value1" placeholder="延迟" v-model="StyleE1.transitionDelay" @focusout="changeMainTransition()"/>
+					<img class="icon icon2" src="./img/transition.png" >
+					<input type="" class="value value2" placeholder="过渡" v-model="StyleE1.transition" @focusout="changeMainTransition()"/>
+					<img class="icon icon3" src="./img/timing.png" >
+					<input type="" class="value value3" placeholder="速度曲线" v-model="StyleE1.transitionTimingFunction" @focusout="changeMainTransition()"/>
+					<!-- 三次贝赛尔曲线，为(x1,y1,x2,y2)，其中x1∈[0,1]，y1y2无限制-->
+				</div>
+				<div class="anime-type">动效内容</div>
+				<div class="anime-area"><!-- 自适应空间 -->
+					<div class="title-area">
+						<div class="type">鼠标悬停时</div>
+					</div>
+					<div class="anime-property-area">
+						<div class="name height">高<input class="value height-v" placeholder="0px" v-model="StyleHover.height" @focusout="changeHover()"/></div>
+						<div class="name width">宽<input class="value width-v" placeholder="0px" v-model="StyleHover.width" @focusout="changeHover()"/></div>
+						<div class="name left">右移<input class="value left-v" placeholder="0px" v-model="StyleHover.moveRight" @focusout="changeHover()"/></div>
+						<div class="name top">下移<input class="value top-v" placeholder="0px" v-model="StyleHover.moveDown" @focusout="changeHover()"/></div>
+						<div class="name background">颜色<input type="color" class="value background-v" v-model="StyleHover.background" @focusout="changeHover()"/></div>
+						<div class="name z-index">层级<input class="value z-index-v" placeholder="中" disabled="disabled" @focusout="changeMain()"/></div>
+						<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" v-model="StyleHover.opacity" @focusout="changeHover()"/></div>
+						<div class="name border-radius">圆角<input class="value border-radius-v" placeholder="0px" v-model="StyleHover.borderRadius" @focusout="changeHover()"/></div>
+						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleHover.border" @focusout="changeHover()"/>
+							<input type="color" class="value border-c" v-model="StyleHover.borderColor" @focusout="changeHover()"/></div>
+						<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleHover.boxShadow" @focusout="changeHover()"/></div>
+						<div class="name rotate">旋转<input class="value rotate-v" placeholder="0" v-model="StyleHover.transform" @focusout="changeHover()"/></div>
+						<div class="name origin">旋转锚点<input class="value origin-v" placeholder="0px 0px" v-model="StyleE1.transformOrigin" @focusout="changeMain()"/></div><!-- 注意此处的origin位于StyleE1中 -->
+					</div>
+					<div class="title-area">
+						<div class="type">鼠标按下时</div>
+					</div>
+					<div class="anime-property-area">
+						<div class="name height">高<input class="value height-v" placeholder="0px" v-model="StyleActive.height" @focusout="changeActive()"/></div>
+						<div class="name width">宽<input class="value width-v" placeholder="0px" v-model="StyleActive.width" @focusout="changeActive()"/></div>
+						<div class="name left">右移<input class="value left-v" placeholder="0px" v-model="StyleActive.moveRight" @focusout="changeActive()"/></div>
+						<div class="name top">下移<input class="value top-v" placeholder="0px" v-model="StyleActive.moveDown" @focusout="changeActive()"/></div>
+						<div class="name background">颜色<input type="color" class="value background-v" v-model="StyleActive.background" @focusout="changeActive()"/></div>
+						<div class="name z-index">层级<input class="value z-index-v" placeholder="中" disabled="disabled" @focusout="changeMain()"/></div>
+						<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" v-model="StyleActive.opacity" @focusout="changeActive()"/></div>
+						<div class="name border-radius">圆角<input class="value border-radius-v" placeholder="0px" v-model="StyleActive.borderRadius" @focusout="changeActive()"/></div>
+						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleActive.border" @focusout="changeActive()"/>
+							<input type="color" class="value border-c" v-model="StyleActive.borderColor" @focusout="changeActive()"/></div>
+						<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleActive.boxShadow" @focusout="changeActive()"/></div>
+						<div class="name rotate">旋转<input class="value rotate-v" placeholder="0" v-model="StyleActive.transform" @focusout="changeActive()"/></div>
+						<div class="name origin">旋转锚点<input class="value origin-v" placeholder="0px 0px" v-model="StyleE1.transformOrigin" @focusout="changeMain()"/></div><!-- 注意此处的origin位于StyleE1中 -->
+					</div>
+				</div>
+			</div>
+			<div class="pseudo-element">
+				<div id="pseudo-element-title">伪元素</div>
+				<div class="anime" id="anime2" @click="pseudoAnimeShow()">动效</div>
+				<div id="pseudo-property-area">
+					<div class="name height">高<input class="value height-v" value="" placeholder="0px" v-model="StyleBefore.height" @focusout="changeBefore()"/></div>
+					<div class="name width">宽<input class="value width-v" value="" placeholder="0px" v-model="StyleBefore.width" @focusout="changeBefore()"/></div>
+					<div class="name left">X<input class="value left-v" value="" v-model="StyleBefore.left" @focusout="changeBefore()"/></div>
+					<div class="name top">Y<input class="value top-v" value="" v-model="StyleBefore.top" @focusout="changeBefore()"/></div>
+					<div class="name background">颜色<input type="color" class="value background-v" value="" v-model="StyleBefore.background" @focusout="changeBefore()"/></div>
+					<div class="name z-index">层级<input class="value z-index-v" placeholder="上" disabled="disabled" v-model="StyleBefore.zIndex" @focusout="changeBefore()"/></div>
+					<div class="name opacity">不透明度<input class="value opacity-v" placeholder="1.0" value="1.0" v-model="StyleBefore.opacity" @focusout="changeBefore()"/></div>
+					<div class="name border-radius">圆角<input class="value border-radius-v" value="" placeholder="0px" v-model="StyleBefore.borderRadius" @focusout="changeBefore()"/></div>
+					<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleBefore.border" @focusout="changeBefore()"/>
+						<input type="color" class="value border-c" v-model="StyleBefore.borderColor" @focusout="changeBefore()"/></div>
+					<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleBefore.boxShadow" @focusout="changeBefore()"/></div>
+				</div>
+			</div>
+			<div id="pseudo-element-anime" :style="pseudoElementAnime">
+				<div class="anime-transition">动效过渡</div>
+				<div class="transition">
+					<img class="icon icon1" src="./img/delay.png" >
+					<input type="" class="value value1" placeholder="延迟" v-model="StyleBefore.transitionDelay" @focusout="changeBeforeTransition()"/>
+					<img class="icon icon2" src="./img/transition.png" >
+					<input type="" class="value value2" placeholder="过渡" v-model="StyleBefore.transition" @focusout="changeBeforeTransition()"/>
+					<img class="icon icon3" src="./img/timing.png" >
+					<input type="" class="value value3" placeholder="速度曲线" v-model="StyleBefore.transitionTimingFunction" @focusout="changeBeforeTransition()"/>
+				</div>
+				<div class="anime-type">动效内容</div>
+				<div class="anime-area"><!-- 自适应空间 -->
+					<div class="title-area">
+						<div class="type">鼠标悬停时</div>
+					</div>
+					<div class="anime-property-area">
+						<div class="name height">高<input class="value height-v" value="" placeholder="0px" v-model="StyleBeforeHover.height" @focusout="changeBeforeHover()"/></div>
+						<div class="name width">宽<input class="value width-v" value="" placeholder="0px" v-model="StyleBeforeHover.width" @focusout="changeBeforeHover()"/></div>
+						<div class="name left">右移<input class="value left-v" value="" placeholder="0px" v-model="StyleBeforeHover.moveRight" @focusout="changeBeforeHover()"/></div>
+						<div class="name top">下移<input class="value top-v" value="" placeholder="0px" v-model="StyleBeforeHover.moveDown" @focusout="changeBeforeHover()"/></div>
+						<div class="name background">颜色<input type="color" class="value background-v" value="" v-model="StyleBeforeHover.background" @focusout="changeBeforeHover()"/></div>
+						<div class="name z-index">层级<input class="value z-index-v" placeholder="上" disabled="disabled"/></div>
+						<div class="name opacity">清晰<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeHover.opacity" @focusout="changeBeforeHover()"/></div>
+						<div class="name border-radius">圆角<input class="value border-radius-v" value="" placeholder="0px" v-model="StyleBeforeHover.borderRadius" @focusout="changeBeforeHover()"/></div>
+						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleBeforeHover.border" @focusout="changeBeforeHover()"/>
+							<input type="color" class="value border-c" v-model="StyleBeforeHover.borderColor" @focusout="changeBeforeHover()"/></div>
+						<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleBeforeHover.boxShadow" @focusout="changeBeforeHover()"/></div>
+						<div class="name rotate">旋转<input class="value rotate-v" placeholder="0" v-model="StyleBeforeHover.transform" @focusout="changeBeforeHover()"/></div>
+						<div class="name origin">旋转锚点<input class="value origin-v" placeholder="0px 0px" v-model="StyleBefore.transformOrigin" @focusout="changeBefore()"/></div><!-- 注意此处的origin位于StyleE1中 -->
+					</div>
+					<div class="title-area">
+						<div class="type">鼠标按下时</div>
+					</div>
+					<div class="anime-property-area">
+						<div class="name height">高<input class="value height-v" value="" placeholder="0px" v-model="StyleBeforeActive.height" @focusout="changeBeforeActive()"/></div>
+						<div class="name width">宽<input class="value width-v" value="" placeholder="0px" v-model="StyleBeforeActive.width" @focusout="changeBeforeActive()"/></div>
+						<div class="name left">右移<input class="value left-v" value="" placeholder="0px" v-model="StyleBeforeActive.moveRight" @focusout="changeBeforeActive()"/></div>
+						<div class="name top">下移<input class="value top-v" value="" placeholder="0px" v-model="StyleBeforeActive.moveDown" @focusout="changeBeforeActive()"/></div>
+						<div class="name background">颜色<input type="color" class="value background-v" value="" v-model="StyleBeforeActive.background" @focusout="changeBeforeActive()"/></div>
+						<div class="name z-index">层级<input class="value z-index-v" placeholder="上" disabled="disabled"/></div>
+						<div class="name opacity">清晰<input class="value opacity-v" placeholder="1.0" value="" v-model="StyleBeforeActive.opacity" @focusout="changeBeforeActive()"/></div>
+						<div class="name border-radius">圆角<input class="value border-radius-v" value="" placeholder="0px" v-model="StyleBeforeActive.borderRadius" @focusout="changeBeforeActive()"/></div>
+						<div class="name border">边框<input class="value border-v" placeholder="0px solid" v-model="StyleBeforeActive.border" @focusout="changeBeforeActive()"/>
+							<input type="color" class="value border-c" v-model="StyleBeforeActive.borderColor" @focusout="changeBeforeActive()"/></div>
+						<div class="name shadow">阴影<input class="value shadow-v" placeholder="0px 0px 0px rgba(0,0,0,0.25)" v-model="StyleBeforeActive.boxShadow" @focusout="changeBeforeActive()"/></div>
+						<div class="name rotate">旋转<input class="value rotate-v" placeholder="0" v-model="StyleBeforeActive.transform" @focusout="changeBeforeActive()"/></div>
+						<div class="name origin">旋转锚点<input class="value origin-v" placeholder="0px 0px" v-model="StyleBefore.transformOrigin" @focusout="changeBefore()"/></div><!-- 注意此处的origin位于StyleE1中 -->
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="canvas">
+			<div id="E1"></div>
+		</div>
+		
+		<div id="right-part">
+			<div id="btn-area">
+				<div id="btn-icon" @click="help()"></div>
+				<div id="btn-name">帮助</div>
+			</div>
+			<div id="help-place">
+				<div id="help">
+					<ol>
+						<li>【圆角】可输入单个数值如'12px'，使元素四角均为12px的圆角；亦可输入四个数值来控制不同的角，如'12px 0px 12px 0px'。</li>
+						<li>【阴影】的四个值分别为：x坐标，y坐标，模糊度，颜色，用空格隔开。</li>
+						<li>【层级】功能由于伪元素特性，无法稳定生效，因此处于不可修改状态。</li>
+						<li>【速度曲线】也即三次贝赛尔曲线，需要输入四个值来逐一对应x1,y1,x2,y2，英文逗号隔开。其中x1,x2∈[0,1]，y1,y2无限制。</li>
+						<li>【右移/下移】可以为负值，从而实现左移/上移。</li>
+						<li>【右移/下移】与【旋转】存在一定的冲突（移动时旋转的锚点当然会不停变化），建议同一时间仅启用一个功能。</li>
+					</ol>
+				</div>
+			</div>
+			<div id="btn0-area">
+				<div id="btn0-icon" @click="fill()"></div>
+				<div id="btn0-name">快速填写</div>
+			</div>
+			<div id="btn1-area">
+				<div id="btn1-icon" @click="canvas()"></div>
+				<input type="color" id="color" value="#ffffff" @focusout="changeCanvas()"/>
+				<div id="btn1-name">画布颜色</div>
+			</div>
+			<div id="btn2-area">
+				<div id="btn2-icon" @click="codes()"></div>
+				<div id="btn2-name">导出代码</div>
+			</div>
+			<div id="codes-place">
+				<div id="codes">{{Codes.Main}}<br>{{Codes.MainHover}}<br>{{Codes.MainActive}}<br>{{Codes.Before}}<br>{{Codes.BeforeHover}}<br>{{Codes.BeforeActive}}</div>
+			</div>
+		</div>
+	</div>
+		<script src="./js/main.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>
