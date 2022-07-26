@@ -1,0 +1,435 @@
+body{
+	margin: 0;
+	padding: 0;
+	line-height: 32px;
+	/* 中文字体包太大了 使用默认字体 */
+	font-family: "MingLiU";
+}
+p{
+	line-height: 24px;
+	margin: 0px 0px 12px;
+}
+
+#left-part{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	width: 360px;
+	background-color: #ffffff;
+}
+#tab{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 80px;
+	width: 360px;
+}
+#state{
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	height: 40px;
+	width: 360px;
+}
+#state1,#state2,#state3{
+	user-select: none;
+	/* 其他代码都在js里 */
+}
+#state1:hover,#state2:hover,#state3:hover{
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08) !important;
+}
+#line{
+	position: absolute;
+	top: 60px;
+	left: 10px;
+	height: 1px;
+	width: 340px;
+	border-radius: 99px;
+	background: linear-gradient(270deg, rgba(204,204,204,0) 0%, #CCCCCC 50%, rgba(204,204,204,0) 100%);
+}
+
+/* 属性区 */
+#normal{
+	display: block;
+}
+#hover{
+	display: none;
+}
+#active{
+	display: none;
+}
+
+.area{
+	position: absolute;
+	left: 20px;
+	width: 320px;
+}
+.area-main{
+	top: 76px;
+}
+.area-before{
+	top: 349px;
+}
+.area-after{
+	top: 622px;
+}
+.title{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	color: #333333;
+	font-size: 14px;
+	font-weight: 600;
+	user-select: none;
+}
+
+.name{
+	position: absolute;
+	font-size: 14px;
+	text-align: center;/* 单字32px,两字64px.字居于中间 */
+	color: #666666;
+	user-select: none;
+}
+.width{
+	left: 0px;
+	top: 36px;
+	width: 32px;
+}
+.height{
+	left: 170px;
+	top: 36px;
+	width: 32px;
+}
+.left{
+	left: 0px;
+	top: 72px;
+	width: 32px;
+}
+.top{
+	left: 170px;
+	top: 72px;
+	width: 32px;
+}
+.border-radius{
+	left: 0px;
+	top: 108px;
+	width: 32px;
+}
+.background{
+	left: 170px;
+	top: 108px;
+	width: 32px;
+}
+.shadow{
+	left: 0px;
+	top: 144px;
+	width: 32px;	
+}
+.opacity{
+	left: 170px;
+	top: 180px;
+	width: 64px;
+}
+.border{
+	left: 0px;
+	top: 180px;
+	width: 32px;
+}
+.rotate,.delay{
+	left: 0px;
+	top: 216px;
+	width: 32px;
+}
+.origin,.timing{
+	left: 170px;
+	top: 216px;
+	width: 64px;
+}
+.transition{
+	left: 85px;
+	top: 216px;
+	width: 32px;
+}
+
+.value{
+	position: absolute;
+	height: 32px;
+	color: #333333;
+	border: none;
+	padding: 0px 0px 0px 10px;
+	outline: none;
+	font-size: 14px;
+	box-sizing: border-box;/* 浏览器默认content-box，改成border-box后将内边距等计算在长宽里面，从而可以照搬设计稿数值 */
+}
+.height-v, .width-v, .left-v, .top-v,.border-radius-v,.border-v,.rotate-v{
+	width: 118px;
+	left: 32px;
+}
+.background-colorpicker{
+	position: absolute;
+	top: 114px;
+	left: 212px;
+	height: 20px;
+	width: 14px;
+	padding: 0;
+	border: none;
+	background: none;
+	z-index: 98;
+}
+.background-v{
+	width: 78px;
+	left: 48px;/* 58减去自身padding的10 */
+}
+.border-v{
+	width: 38px;
+	left: 32px;
+}
+.border-colorpicker{
+	position: absolute;
+	top: 186px;
+	left: 84px;
+	height: 20px;
+	width: 14px;
+	padding: 0;
+	border: none;
+	background: none;
+	z-index: 98;
+}
+.border-color-v{
+	top: 180px;
+	left: 90px;/* 100减去自身padding的10 */
+	width: 70px;
+}
+.shadow-v{
+	width: 288px;
+	left: 32px;
+}
+.opacity-v,.timing-v{
+	width: 86px;
+	left: 64px;
+}
+.origin-v{
+	width: 86px;
+	left: 64px;
+}
+.delay-v,.transition-v{
+	width: 42px;
+	left: 32px;
+}
+
+
+
+/* 画布 */
+#canvas{
+	position: absolute;
+	left: 360px;
+	right: 80px;
+	top: 0px;
+	bottom: 0px;
+	z-index: -99;
+}
+#E1{
+	position: absolute;
+}
+#E1:before{
+	content: url();
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#E1:after{
+	content: url();
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+
+
+/* 右侧 */
+#right-part{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	height: 100%;
+	width: 80px;
+	background-color: #FFFFFF;
+}
+.btn-area{
+	position: absolute;
+	left: 0px;
+	width: 80px;
+	height: 68px;
+}
+.btn-icon{
+	position: absolute;
+	top: 0px;
+	left: 22px;
+	width: 36px;
+	height: 36px;
+	border-radius: 99px;
+}
+.btn-icon:hover{
+	box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.08);
+}
+.btn-name{
+	position: absolute;
+	bottom: 0px;
+	width: 80px;
+	font-size: 12px;
+	text-align: center;
+	user-select: none;
+}
+
+#btn-area-help{
+	top: 50px;
+}
+#icon-help{
+	background: url(../img/icon-help.png);
+}
+#btn-area-fill{
+	bottom: 206px;
+}
+#icon-fill{
+	background: url(../img/icon-fill.png)
+}
+#btn-area-color{
+	bottom: 128px;
+}
+#icon-color{
+	background: url(../img/icon-color.png);
+}
+#btn-area-codes{
+	bottom: 50px;
+}
+#icon-codes{
+	background: url(../img/icon-codes.png);
+}
+
+
+
+
+
+#help-place{
+	position: absolute;
+	right: 90px;
+	top: 54px;
+	height: 647px;
+	width: 400px;
+	border-radius: 12px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.08);
+	display: none;
+	overflow: auto;
+}
+#help{
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	color: #333333;
+	font-size: 14px;
+	/* word-wrap: break-word;
+	word-break: normal; */
+	word-break: break-all;
+}
+#help-place::-webkit-scrollbar{
+    /*滚动条整体样式*/
+    width: 5px;
+}
+#help-place::-webkit-scrollbar-thumb{
+    /*滚动条-滑块*/
+    border-radius: 99px;
+	background: #999999;
+	/* box-shadow: 0px 3px 5px rgba(0,0,0,0.3); */
+}
+#help-place::-webkit-scrollbar-track{
+	/*滚动条-下层轨道*/
+    border-radius: 99px;
+	width: 2px;
+	background: #F4F4F4;
+}
+#color-place{
+	position: absolute;
+	right: 90px;
+	bottom: 148px;/* 128+20 */
+	height: 50px;
+	width: 140px;
+	border-radius: 12px;
+	background-color: #ffffff;
+	box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.08);
+	color: #333333;
+	font-size: 12px;
+	line-height: 50px;
+	display: none;
+}
+#canvas-colorpicker{
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	height: 28px;
+	width: 24px;
+	padding: 0;
+	border: none;
+	background: none;
+	z-index: 98;
+}
+#canvas-color{
+	position: absolute;
+	top: 9px;
+	right: 20px;
+	height: 32px;
+	width: 78px;
+	color: #333333;
+	border: none;
+	padding: 0px 0px 0px 10px;
+	outline: none;
+	font-size: 14px;
+	box-sizing: border-box;/* 浏览器默认content-box，改成border-box后将内边距等计算在长宽里面，从而可以照搬设计稿数值 */
+}
+#codes-place{
+	position: absolute;
+	right: 90px;
+	bottom: 70px;/* 50+20 */
+	height: 647px;
+	width: 400px;
+	border-radius: 12px;
+	background-color: #FFFFFF;
+	box-shadow: 0px 8px 14px rgba(0, 0, 0, 0.08);
+	display: none;
+}
+#codes-place0{
+	position: absolute;
+	top: 20px;
+	bottom: 20px;
+	left: 20px;
+	right: 8px;
+	overflow: auto;/* overflow决定滚动条在谁身上 */
+}
+#codes{
+	position: absolute;
+	right: 7px;
+	color: #333333;
+	font-size: 14px;
+	/* word-wrap: break-word;
+	word-break: normal; */
+	word-break: break-all;
+}
+#codes-place0::-webkit-scrollbar{
+    /*滚动条整体样式*/
+    width: 5px;
+}
+#codes-place0::-webkit-scrollbar-thumb{
+    /*滚动条-滑块*/
+    border-radius: 99px;
+	background: #999999;
+	/* box-shadow: 0px 3px 5px rgba(0,0,0,0.3); */
+}
+#codes-place0::-webkit-scrollbar-track{
+	/*滚动条-下层轨道*/
+    border-radius: 99px;
+	width: 2px;
+	background: #F4F4F4;
+}
